@@ -15,7 +15,7 @@ const config = {
     measurementId: "G-KDKJX9QYGN"
 }
 
-const firebase = window.firebase.initializeApp(config);
+// const firebase = window.firebase.initializeApp(config);
 
 ReactDOM.render(
     <>
