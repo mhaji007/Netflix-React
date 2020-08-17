@@ -3,23 +3,31 @@ import ReactDOM from 'react-dom';
 import { GlobalStyles } from './global-styles';
 import { App } from './app';
 import { FirebaseContext } from './context/firebase';
+import app from 'firebase/app';
+
+
 
 const config = {
-    apiKey: "AIzaSyBjplLo7-gjsKqx_yb6vhJhSMOsASBtZOE",
-    authDomain: "netflix-react-a95b8.firebaseapp.com",
-    databaseURL: "https://netflix-react-a95b8.firebaseio.com",
-    projectId: "netflix-react-a95b8",
-    storageBucket: "netflix-react-a95b8.appspot.com",
-    messagingSenderId: "64208235344",
-    appId: "1:64208235344:web:ef504c6996a8d7c6d65a55",
-    measurementId: "G-KDKJX9QYGN"
-}
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_DATABASE_URL,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
+  };
 
 // const firebase = window.firebase.initializeApp(config);
 
+class Firebase {
+    constructor() {
+      app.initializeApp(config);
+    }
+  }
+
 ReactDOM.render(
     <>
-        <FirebaseContext.Provider value={{ firebase: window.firebase }}>
+        <FirebaseContext.Provider value={new Firebase()}>
             <GlobalStyles />
             <App />
         </FirebaseContext.Provider>
