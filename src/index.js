@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { GlobalStyles } from './global-styles';
 import { App } from './app';
 import { FirebaseContext } from './context/firebase';
-import app from 'firebase/app';
+// import app from 'firebase/app';
+// import 'firebase/auth';
 
 
 
@@ -17,20 +18,40 @@ const config = {
     appId: process.env.REACT_APP_APP_ID
   };
 
-// const firebase = window.firebase.initializeApp(config);
 
-class Firebase {
-    constructor() {
-      app.initializeApp(config);
-    }
-  }
+  // class Firebase {
+  //   constructor() {
+  //     app.initializeApp(config);
+
+  //     this.auth = app.auth();
+  //   }
+
+//       // *** Auth API ***
+
+//   doCreateUserWithEmailAndPassword = (email, password) =>
+//   this.auth.createUserWithEmailAndPassword(email, password);
+
+// doSignInWithEmailAndPassword = (email, password) =>
+//   this.auth.signInWithEmailAndPassword(email, password);
+
+// doSignOut = () => this.auth.signOut();
+
+// doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+
+// doPasswordUpdate = password =>
+//   this.auth.currentUser.updatePassword(password);
+//   }
+
+//   export default Firebase;
+
+const firebase = window.firebase.initializeApp(config);
+
+console.log(window.firebase);
 
 ReactDOM.render(
-    <>
-        <FirebaseContext.Provider value={new Firebase()}>
-            <GlobalStyles />
-            <App />
-        </FirebaseContext.Provider>
-    </>,
+    <FirebaseContext.Provider value={{ firebase: window.firebase }}>
+        <GlobalStyles />
+        <App />
+    </FirebaseContext.Provider>,
     document.getElementById('root')
 );
