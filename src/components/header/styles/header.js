@@ -138,6 +138,7 @@ export const SearchIcon = styled.button`
     cursor: pointer;
     background-color: transparent;
     border: 0;
+    outline: none;
 
     img {
         filter: brightness(0) invert(1);
@@ -145,9 +146,7 @@ export const SearchIcon = styled.button`
     }
 `
 export const SearchInput = styled.input`
-     &:focus{
-    outline: none;
-}
+
     outline: none;
     background-color: #44444459;
     color: white;
