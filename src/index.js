@@ -5,8 +5,7 @@ import { App } from './app';
 import { FirebaseContext } from './context/firebase';
 import * as firebase from 'firebase';
 
-import { seedDatabase } from './seed';
-
+//import { seedDatabase } from './seed';
 
 
 const config = {
@@ -22,7 +21,7 @@ const config = {
   // const firebase = window.firebase.initializeApp(config);
   const app = firebase.initializeApp(config);
 
-  seedDatabase(firebase)
+  //seedDatabase(firebase)
 
 // class Firebase {
 //     constructor() {
