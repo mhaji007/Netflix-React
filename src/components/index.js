@@ -8,7 +8,7 @@ export { default as Feature } from './feature';
 export { default as Form } from './form';
 export { default as Profiles } from './profiles';
 export { default as Loading } from './loading';
-
+export { default as Player } from './player';
 
 // This method of using imports tells
 // webpack that we are using this file
